@@ -1,5 +1,5 @@
 /**
- * Read web server data and analyse hourly access patterns.
+ * Read web server data & analyse hourly access patterns.
  * 
  * @author David J. Barnes and Michael Kölling.
  * @version    2016.02.29
@@ -11,11 +11,10 @@ public class LogAnalyzer {
     private LogfileReader reader;
 
     /**
-     * Create an object to analyze hourly web accesses.
+     * Creates an object to analyze hourly web accesses.
      */
     public LogAnalyzer() {
-        // Create the array object to hold the hourly
-        // access counts.
+        // Create the array object to hold the hourly access counts.
         hourCounts = new int[24];
         // Create the reader to obtain the data.
         reader = new LogfileReader("demo.log");
@@ -42,11 +41,35 @@ public class LogAnalyzer {
             System.out.println(hour + ": " + hourCounts[hour]);
         }
     }
-    
+
     /**
-     * Print the lines of data read by the LogfileReader
+     * Prints the lines of data read by the LogfileReader
      */
     public void printData() {
         reader.printData();
+    }
+
+    /**
+     * Accesses how many times the website has been accessed
+     */
+    public void numberOfAccesses() {
+    }
+
+    /**
+     * Keeps track of what hour is the busiest hour of a day or year
+     */
+    public void busiestHour() {
+    }
+
+    /**
+     * Keeps track of what hour is the quietest/least trafficed hour of a day or year
+     */
+    public void quietestHour() {
+    }
+
+    /**
+     * Keeps track of the busiest 2 hours of a day or year
+     */
+    public void busiestTwoHours() {
     }
 }

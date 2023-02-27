@@ -10,10 +10,8 @@ import java.util.Scanner;
 
 /**
  * A class to read information from a file of web server accesses.
- * Currently, the log file is assumed to contain simply
- * date and time information in the format:
- *
- *    year month day hour minute
+ * Currently, the log file is assumed to contain simply date and time information in the format: year month day hour minute
+ * 
  * Log entries are sorted into ascending order of date.
  * 
  * @author David J. Barnes and Michael Kölling.
@@ -36,8 +34,7 @@ public class LogfileReader implements Iterator<LogEntry> {
     }
     
     /**
-     * Create a LogfileReader that will supply data
-     * from a particular log file. 
+     * Create a LogfileReader that will supply data from a particular log file. 
      * @param filename The file of log data.
      */
     public LogfileReader(String filename) {
@@ -45,7 +42,6 @@ public class LogfileReader implements Iterator<LogEntry> {
         format = "Year Month(1-12) Day Hour Minute";       
         // Where to store the data.
         entries = new ArrayList<>();
-        
         // Attempt to read the complete set of data from file.
         boolean dataRead;
         try {

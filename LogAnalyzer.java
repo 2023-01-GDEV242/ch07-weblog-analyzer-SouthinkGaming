@@ -33,9 +33,8 @@ public class LogAnalyzer {
     }
 
     /**
-     * Print the hourly counts.
-     * These should have been set with a prior
-     * call to analyzeHourlyData.
+     * Prints hourly counts.
+     * These should have been set with a prior call to analyzeHourlyData.
      */
     public void printHourlyCounts() {
         System.out.println("Hr: Count");

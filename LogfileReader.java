@@ -19,8 +19,7 @@ import java.util.Scanner;
  * @author David J. Barnes and Michael Kölling.
  * @version    2016.02.29
  */
-public class LogfileReader implements Iterator<LogEntry>
-{
+public class LogfileReader implements Iterator<LogEntry> {
     // The data format in the log file.
     private String format;
     // Where the file's contents are stored in the form
@@ -32,8 +31,7 @@ public class LogfileReader implements Iterator<LogEntry>
     /**
      * Create a LogfileReader to supply data from a default file.
      */
-    public LogfileReader()
-    {
+    public LogfileReader() {
         this("weblog.txt");
     }
     
@@ -42,8 +40,7 @@ public class LogfileReader implements Iterator<LogEntry>
      * from a particular log file. 
      * @param filename The file of log data.
      */
-    public LogfileReader(String filename)
-    {
+    public LogfileReader(String filename) {
         // The format for the data.
         format = "Year Month(1-12) Day Hour Minute";       
         // Where to store the data.
@@ -51,7 +48,7 @@ public class LogfileReader implements Iterator<LogEntry>
         
         // Attempt to read the complete set of data from file.
         boolean dataRead;
-        try{
+        try {
             // Locate the file with respect to the current environment.
             URL fileURL = getClass().getClassLoader().getResource(filename);
             if(fileURL == null) {
@@ -67,8 +64,7 @@ public class LogfileReader implements Iterator<LogEntry>
             }
             logfile.close();
             dataRead = true;
-        }
-        catch(FileNotFoundException | URISyntaxException e) {
+        } catch(FileNotFoundException | URISyntaxException e) {
             System.out.println("Problem encountered: " + e);
             dataRead = false;
         }
@@ -88,8 +84,7 @@ public class LogfileReader implements Iterator<LogEntry>
      * @return true if there is more data available,
      *         false otherwise.
      */
-    public boolean hasNext()
-    {
+    public boolean hasNext() {
         return dataIterator.hasNext();
     }
     
@@ -100,8 +95,7 @@ public class LogfileReader implements Iterator<LogEntry>
      * @return A LogEntry containing the data from the
      *         next log line.
      */
-    public LogEntry next()
-    {
+    public LogEntry next() {
         return dataIterator.next();
     }
     
@@ -109,8 +103,7 @@ public class LogfileReader implements Iterator<LogEntry>
      * Remove an entry.
      * This operation is not permitted.
      */
-    public void remove()
-    {
+    public void remove() {
         System.err.println("It is not permitted to remove entries.");
     }
     
@@ -118,8 +111,7 @@ public class LogfileReader implements Iterator<LogEntry>
      * @return A string explaining the format of the data
      *         in the log file.
      */
-    public String getFormat()
-    {
+    public String getFormat() {
         return format;
     }
     
@@ -128,16 +120,14 @@ public class LogfileReader implements Iterator<LogEntry>
      * This allows a single file of data to be processed
      * more than once.
      */
-    public void reset()
-    {
+    public void reset() {
         dataIterator = entries.iterator();
     }
 
     /**
      * Print the data.
-     */    
-    public void printData()
-    {
+     */
+    public void printData() {
         for(LogEntry entry : entries) {
             System.out.println(entry);
         }
@@ -149,8 +139,7 @@ public class LogfileReader implements Iterator<LogEntry>
      * days after the 28th of a month are ever generated.
      * @param data Where to store the simulated LogEntry objects.
      */
-    private void createSimulatedData(ArrayList<LogEntry> data)
-    {
+    private void createSimulatedData(ArrayList<LogEntry> data) {
         LogfileCreator creator = new LogfileCreator();
         // How many simulated entries we want.
         int numEntries = 100;
